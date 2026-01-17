@@ -7,11 +7,10 @@ function MainContent() {
         minHeight: '200px'
       }}
     >
-      <h2 style={{ color: '#333' }}>Welcome to My Page</h2>
+      <h2 style={{ color: '#333' }}>Main Content</h2>
 
-      <p style={{ lineHeight: '1.6', fontSize: '16px' }}>
-        This application displays user profile information and a list
-        of favorite cities using React components.
+      <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
+        I love to visit New York, Paris, and Tokyo.
       </p>
     </main>
   );
