@@ -1,8 +1,4 @@
-function UserInfo({ userData }) {
-  return <UserDetails userData={userData} />;
-}
-
-import UserDetails from './UserDetails';
+import UserDetails from "./UserDetails";
 
 function UserInfo() {
   return <UserDetails />;
