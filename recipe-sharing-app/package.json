@@ -1,6 +1,10 @@
-"dependencies": {
-  "react": "^18.2.0",
-  "react-dom": "^18.2.0",
-  "zustand": "^4.x.x",
-  "react-router-dom": "^6.x.x"
+{
+  "devDependencies": {
+    "vite": "^4.x.x"
+  },
+  "dependencies": {
+    "react": "^18.x.x",
+    "react-dom": "^18.x.x",
+    "zustand": "^4.x.x"
+  }
 }
