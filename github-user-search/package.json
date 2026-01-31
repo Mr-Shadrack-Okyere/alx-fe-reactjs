@@ -3,3 +3,11 @@
   "postcss": "^8.x.x",
   "tailwindcss": "^3.x.x"
 }
+
+"dependencies": {
+  "axios": "^1.x.x",
+  "react": "...",
+  "react-dom": "...",
+  "react-scripts": "...",
+  ...
+}
