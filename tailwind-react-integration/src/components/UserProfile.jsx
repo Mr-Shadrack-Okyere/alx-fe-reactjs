@@ -18,7 +18,7 @@ export default UserProfile;
 
 function UserProfile() {
   return (
-    <div className="bg-gray-100 p-4 md:p-8 max-w-xs md:max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
+    <div className="bg-gray-100 sm:p-4 md:p-8 max-w-xs md:max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
       <img
         src="https://via.placeholder.com/150"
         alt="User"
@@ -33,3 +33,4 @@ function UserProfile() {
 }
 
 export default UserProfile;
+
