@@ -1,3 +1,11 @@
+import HomePage from "./components/HomePage"
+
+function App() {
+  return <HomePage />
+}
+
+export default App
+
 import AddRecipeForm from "./components/AddRecipeForm"
 <Route path="/add-recipe" element={<AddRecipeForm />} />
 function App() {
