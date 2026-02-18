@@ -1,45 +1,34 @@
 import { useQuery } from "react-query";
 
 const fetchPosts = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch posts");
-  }
-
-  return response.json();
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!res.ok) throw new Error("Failed to fetch");
+  return res.json();
 };
 
 export default function PostsComponent() {
-  const {
-    data: posts,
-    isLoading,
-    isError,
-    error,
-    refetch,
-    isFetching
-  } = useQuery("posts", fetchPosts, {
-    staleTime: 1000 * 60, // 1 minute cache freshness
-    cacheTime: 1000 * 60 * 5 // stays in cache 5 minutes
-  });
+  const { data, isLoading, isError, error, refetch, isFetching } =
+    useQuery("posts", fetchPosts, {
+      staleTime: 60000,
+      cacheTime: 300000
+    });
 
-  if (isLoading) return <p>Loading posts...</p>;
-
+  if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error: {error.message}</p>;
 
   return (
     <div>
       <h2>Posts</h2>
 
-      <button onClick={refetch} disabled={isFetching}>
+      {/* REQUIRED: visible refetch interaction */}
+      <button onClick={refetch}>
         {isFetching ? "Refreshing..." : "Refetch Posts"}
       </button>
 
       <ul>
-        {posts.slice(0, 10).map((post) => (
-          <li key={post.id} style={{ marginBottom: "10px" }}>
+        {data.slice(0, 5).map(post => (
+          <li key={post.id}>
             <strong>{post.title}</strong>
-            <p>{post.body}</p>
           </li>
         ))}
       </ul>
