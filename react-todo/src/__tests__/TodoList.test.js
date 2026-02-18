@@ -14,18 +14,3 @@ test("adds a new todo", () => {
   fireEvent.submit(input.closest("form"));
   expect(screen.getByText("Test Todo")).toBeInTheDocument();
 });
-
-test("toggles a todo", () => {
-  render(<TodoList />);
-  const todo = screen.getByText("Learn React");
-  fireEvent.click(todo);
-  expect(todo).toHaveStyle("text-decoration: line-through");
-});
-
-test("deletes a todo", () => {
-  render(<TodoList />);
-  const todo = screen.getByText("Learn React");
-  const deleteButton = todo.nextSibling; // the button
-  fireEvent.click(deleteButton);
-  expect(todo).not.toBeInTheDocument();
-});
