@@ -14,3 +14,11 @@ test("adds a new todo", () => {
   fireEvent.submit(input.closest("form"));
   expect(screen.getByText("Test Todo")).toBeInTheDocument();
 });
+
+import { render, screen, fireEvent } from "@testing-library/react";
+import TodoList from "../components/TodoList";
+
+test("renders initial todos", () => {
+  render(<TodoList />);
+  expect(screen.getByText("Learn React")).toBeInTheDocument();
+});
