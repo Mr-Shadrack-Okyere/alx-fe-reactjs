@@ -58,3 +58,40 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Profile from "./components/Profile";          // nested routes inside Profile.jsx
+import BlogPost from "./pages/BlogPost";            // dynamic route
+import ProfileDetails from "./pages/ProfileDetails";
+import ProfileSettings from "./pages/ProfileSettings";
+
+export default function App() {
+  const [isAuth, setIsAuth] = useState(false);
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+
+        {/* Protected route */}
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute isAuth={isAuth}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Dynamic route checker expects /blog/:id */}
+        <Route path="/blog/:id" element={<BlogPost />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
